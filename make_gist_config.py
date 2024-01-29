@@ -1,7 +1,7 @@
 import argparse
 import sys
 
-import astropy.io.fits as pyfits
+import astropy.io.fits as fits
 import numpy as np
 import yaml
 
@@ -61,7 +61,7 @@ with open(master_config, "r") as f:
 ######################################
 ### read MAUVE GIST set-up input file
 ######################################
-mauve_sample = pyfits.open(mauve_info_file)
+mauve_sample = fits.open(mauve_info_file)
 
 ### extract z and (if id is correct) also ebv and sigma
 z = mauve_sample[1].data["z"][np.where(mauve_sample[1].data["Galaxy"] == galid)]
